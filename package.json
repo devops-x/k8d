@@ -1,0 +1,50 @@
+{
+  "name": "k8d",
+  "version": "0.0.1",
+  "description": "基于 Gitlab / Jenkins / Docker / K8s 的自动化部署平台 ",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "egg": "^2.15.1",
+    "egg-scripts": "^2.11.0",
+    "kubernetes-client": "^8.3.6"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-a",
+    "stop": "egg-scripts stop --title=egg-server-a",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devops-x/k8d.git"
+  },
+  "keywords": [
+    "docker",
+    "gitlab",
+    "k8s",
+    "jenkins"
+  ],
+  "author": "Ricky <mail@zhoumq.cn>",
+  "license": "MIT"
+}
