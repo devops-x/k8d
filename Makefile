@@ -28,11 +28,6 @@ build: clean
 	@mv $(RELEASE_DIR) out/$(SERVER_NAME)_$(VERSION)
 	@cd out && tar czf $(SERVER_NAME)_$(VERSION).tgz $(SERVER_NAME)_$(VERSION)
 
-pkg:
-	@echo "all codes are in \"$(RELEASE_DIR)\""
-	mv $(RELEASE_DIR) out/$(SERVER_NAME)_$(VERSION)
-	@cd out && tar czf $(SERVER_NAME)_$(VERSION).tgz $(SERVER_NAME)_$(VERSION)
-
 clean:
 	@echo 'Clean files...'
 	@rm -rf ./out

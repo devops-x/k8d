@@ -23,6 +23,14 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  // k8s connect config
+  config.kubernetes = {
+    ns: 'k8d',
+    version: '1.13',
+    // 是否启用本地配置 ~/.kube/config
+    enableLocal: true,
+  };
+
   return {
     ...config,
     ...userConfig,
