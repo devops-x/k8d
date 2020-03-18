@@ -20,4 +20,8 @@ module.exports = {
     enable: false,
     package: 'egg-sqlite3',
   },
+
+  security: {
+    enable: false,
+  },
 };
