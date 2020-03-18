@@ -27,7 +27,7 @@ $ make build
 - `GET /manager/all_status` 获取指定 namespace 下的所以 pod/service/deployment 状态信息
 - `POST /manager/deploy` 指定镜像部署服务
 > Request Body
-``` json
+```
 {
   "image": "docker.xx.com/xxx:v1", // 镜像地址
   "imagePullPolicy": "IfNotPresent", // 镜像录取方式 Always、IfNotPresent
