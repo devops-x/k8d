@@ -1,7 +1,7 @@
 {
   "name": "k8d",
   "version": "0.0.1",
-  "description": "基于 Gitlab / Jenkins / Docker / K8s 的自动化部署平台 ",
+  "description": "基于 Gitlab / Jenkins / Docker / K8s 的自动化部署平台",
   "private": true,
   "egg": {
     "declarations": true
