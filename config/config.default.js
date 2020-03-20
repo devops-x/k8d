@@ -23,9 +23,15 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  // sqlite client
+  config.sequelize = {
+    dialect: 'sqlite',
+    storage: 'k8d.sqlite',
+  }
+
   // k8s connect config
   config.kubernetes = {
-    ns: 'k8d',
+    ns: 'default',
     version: '1.13',
     // 是否启用本地配置 ~/.kube/config
     enableLocal: true,

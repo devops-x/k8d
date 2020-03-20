@@ -7,7 +7,6 @@ class ManagerController extends Controller {
   async getAllStatus() {
     const { ctx } = this;
     const { kubernetes } = this.service;
-
     ctx.body = await kubernetes.getAllStatus();
   }
 

@@ -1,7 +1,5 @@
 'use strict';
 
-const path = require('path');
-
 /** @type Egg.EggPlugin */
 module.exports = {
   // had enabled by egg
@@ -15,10 +13,10 @@ module.exports = {
     package: 'egg-kubernetes',
   },
 
-  // sqlite db
-  sqlite3: {
-    enable: false,
-    package: 'egg-sqlite3',
+  // sqlite orm
+  sequelize: {
+    enable: true,
+    package: 'egg-sequelize',
   },
 
   security: {

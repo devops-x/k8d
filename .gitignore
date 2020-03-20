@@ -13,4 +13,4 @@ run/
 typings/
 .nyc_output/
 out
-k8d.db
+k8d.sqlite
