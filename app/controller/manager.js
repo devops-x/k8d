@@ -16,6 +16,10 @@ class ManagerController extends Controller {
     const result = await kubernetes.deploy(body);
     this.ctx.body = result;
   }
+
+  async getPodLog() {
+    const { kubernetes } = this.service;
+  }
 }
 
 module.exports = ManagerController;

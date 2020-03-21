@@ -110,8 +110,31 @@ class KubernetesService extends Service {
 
   }
 
-  async getContainerLogs() {
 
+  /**
+   * 获取 pod log
+   * @param {Object} params
+   */
+  async getContainerLogs(params = {}) {
+    const { Pod } = this.ctx.kubernetes;
+    const {podName, containers} = params;
+    const containerNameList = params.containers.map(v => {
+      // 容器处于running状态才能获取镜像的日志
+      if (v.state.running) {
+        return v.name;
+      }
+    }).filter(v => v);
+    // 批量获取Pod里各个容器的日志
+    const promiseList = containerNameList.map(containerName => Pod.logs({podName, containerName}));
+    const promiseRet = await Promise.all(promiseList);
+    const containerLogs = [];
+    promiseRet.forEach((v, idx) => {
+      containerLogs.push('容器 ' + containers[idx]
+        + ` 日志内容: (只展示最近${defaultConfig.logOutput.sinceSeconds / 3600}小时的日志且最多显示${defaultConfig.logOutput.tailLines}行) \n`
+        + (v.body || '-'));
+    });
+  
+    return containerLogs.join('\n');
   }
 }
 
