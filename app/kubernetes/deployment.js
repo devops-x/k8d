@@ -34,7 +34,7 @@ class Deployment {
    * 获取Deployment运行信息
    * @param filters 筛选项
    */
-  async info(params) {
+  async info(params = {}) {
     return this.KubeClient.apis.apps.v1.namespaces(this.ns).deployments.get(params.filters || {});
   };
 

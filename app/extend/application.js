@@ -1,6 +1,5 @@
 'use strict';
 
-
 /**
  * 捕或错误执行异步任务
  */
@@ -145,3 +144,18 @@ exports.getK8sDeployConf = (params, defaultConfig) => {
 
   return deployParams;
 };
+
+
+/**
+ * 响应数据
+ * @param {import('koa').Context} ctx koa ctx 对象
+ * @param {any} content 消息体
+ */
+exports.responseBody = (ctx, content) => {
+  ctx.body = {
+    success: true,
+    content,
+    message: null,
+    code: 'OK',
+  };
+}

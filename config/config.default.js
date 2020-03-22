@@ -29,6 +29,11 @@ module.exports = appInfo => {
     storage: 'k8d.sqlite',
   }
 
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  }
+
   // k8s connect config
   config.kubernetes = {
     ns: 'default',

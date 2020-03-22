@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
+    "egg-cors": "^2.2.3",
     "egg-kubernetes": "^1.0.2",
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^5.2.1",

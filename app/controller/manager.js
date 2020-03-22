@@ -17,6 +17,12 @@ class ManagerController extends Controller {
     this.ctx.body = result;
   }
 
+  async getServers() {
+    const { kubernetes } = this.service;
+    const deployments = await kubernetes.getDeployments();
+    this.app.responseBody(this.ctx, deployments);
+  }
+
   async getPodLog() {
     const { kubernetes } = this.service;
   }

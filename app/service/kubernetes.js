@@ -110,6 +110,33 @@ class KubernetesService extends Service {
 
   }
 
+  /**
+   * 获取 deployment 列表
+   * @param {Object} params 
+   */
+  async getDeployments(params = {}) {
+    const { Deployment } = this.ctx.kubernetes;
+    const deployments = await Deployment.info(params);
+    if (deployments.statusCode !== 200) {
+      this.app.logger.warn('[k8s client]:', deployments);
+      return [];
+    }
+    return deployments.body.items
+      .reduce((prev, next) => {
+        prev.push({
+          metadata: {
+            name: next.metadata.name,
+            creationTimestamp: next.metadata.creationTimestamp,
+          },
+          status: {
+            replicas:  next.status.replicas,
+            availableReplicas: next.status.availableReplicas,
+          }
+        });
+        return prev;
+      }, []);
+  }
+
 
   /**
    * 获取 pod log
