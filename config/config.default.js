@@ -23,6 +23,14 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  // jenkins client
+  config.jenkins = {
+    host: '192.168.90.68',
+    port: 8081,
+    user: 'admin',
+    password: '123456',
+  };
+
   // sqlite client
   config.sequelize = {
     dialect: 'sqlite',

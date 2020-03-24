@@ -26,5 +26,10 @@ module.exports = {
   cors: {
     enable: true,
     package: 'egg-cors',
+  },
+
+  jenkins: {
+    enable: true,
+    package: 'egg-jenkins',
   }
 };
